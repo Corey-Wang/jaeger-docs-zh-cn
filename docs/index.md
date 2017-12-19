@@ -1,8 +1,7 @@
 <img align="right" src="images/jaeger-vector.svg" width=400>
 
-# Jaeger, a distributed tracing system
-
-Welcome to Jaeger's documentation portal! Below, you'll find information for beginners and experienced Jaeger users.
+# Jaeger, 分布式跟踪系统
+欢迎访问Jaeger的文档门户！Jaeger新手和有经验的老手都可以从下面获取到想要的内容
 
 If you can't find what you are looking for, or have an issue not covered here, we'd love to hear from you either on [Github](https://github.com/jaegertracing/jaeger/issues), [Gitter chat](https://gitter.im/jaegertracing/Lobby), or on our [mailing list](https://groups.google.com/forum/#!forum/jaeger-tracing).
 
