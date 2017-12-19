@@ -3,49 +3,49 @@
 # Jaeger, 分布式跟踪系统
 欢迎访问Jaeger的文档门户！Jaeger新手和有经验的老手都可以从下面获取到想要的内容
 
-If you can't find what you are looking for, or have an issue not covered here, we'd love to hear from you either on [Github](https://github.com/jaegertracing/jaeger/issues), [Gitter chat](https://gitter.im/jaegertracing/Lobby), or on our [mailing list](https://groups.google.com/forum/#!forum/jaeger-tracing).
+如果没有找到你想要的内容，或者有个其他问题，可以通过以下途径联系到我们
+ [Github](https://github.com/jaegertracing/jaeger/issues), [Gitter chat](https://gitter.im/jaegertracing/Lobby), [mailing list](https://groups.google.com/forum/#!forum/jaeger-tracing).
 
-## About
-Jaeger, inspired by [Dapper][dapper] and [OpenZipkin](http://zipkin.io),
-is a distributed tracing system released as open source by [Uber Technologies][ubeross].
-It can be used for monitoring microservice-based architectures:
+## 关于
+Jaeger受到了[Dapper][dapper] 和 [OpenZipkin](http://zipkin.io)的启发，由[Uber Technologies][ubeross]开发并开源的一个分布式跟踪系统
 
-* Distributed context propagation
-* Distributed transaction monitoring
-* Root cause analysis
-* Service dependency analysis
-* Performance / latency optimization
+它可以用于监控微服务体系结构：
 
-We published a blog post, [Evolving Distributed Tracing at Uber](https://eng.uber.com/distributed-tracing/), where we explain the history and reasons
-for the architectural choices made in Jaeger.
+* 分布式上下文传播
+* 分布式事务监控
+* 根本原因分析
+* 服务依赖关系分析
+* 性能/延迟优化
 
-## Features
+通过这篇文章[Evolving Distributed Tracing at Uber](https://eng.uber.com/distributed-tracing/)可以了解到Jaeger的历史变迁和变化的原因
+
+## 功能
 
   * [OpenTracing](http://opentracing.io/) compatible data model and instrumentation libraries
     * in [Go](https://github.com/jaegertracing/jaeger-client-go), [Java](https://github.com/jaegertracing/jaeger-client-java), [Node](https://github.com/jaegertracing/jaeger-client-node), [Python](https://github.com/jaegertracing/jaeger-client-python)
     and [C++](https://github.com/jaegertracing/cpp-client)
-  * Uses consistent upfront sampling with individual per service/endpoint probabilities
-  * Adaptive sampling (coming soon)
-  * Post-collection data processing pipeline (coming soon)
+  * 在每个 服务/端 上使用一致的采样率
+  * 抽样采样 (即将到来)
+  * 收集数据的处理管道模型（即将到来）
 
-## Technical Specs
+## 技术选型
 
-  * Backend components implemented in Go 1.9
+  * 后端组件实现采用了 Go 1.9
   * React/Javascript UI
   * [Cassandra 3.x](https://github.com/jaegertracing/jaeger/tree/master/plugin/storage/cassandra), [ElasticSearch](https://github.com/jaegertracing/jaeger/tree/master/plugin/storage/es) as persistent storage (more storage backends coming soon)
 
-## Quick Start
-See [running a docker all in one image](getting_started.md#all-in-one-docker-image).
+## 快速上手
+ 请看这篇[running a docker all in one image](getting_started.md#all-in-one-docker-image).
 
-## Screenshots
+## 效果图
 
-### Traces View
+### Traces概览图
 [![Traces View](images/traces-ss.png)](images/traces-ss.png)
 
-### Trace Detail View
+### Trace详情
 [![Detail View](images/trace-detail-ss.png)](images/trace-detail-ss.png)
 
-## Related links
+## 更多相关文章链接
 - [Evolving Distributed tracing At Uber Engineering](https://eng.uber.com/distributed-tracing/)
 - [Tracing HTTP request latency in Go with OpenTracing](https://medium.com/opentracing/tracing-http-request-latency-in-go-with-opentracing-7cc1282a100a)
 - [Distributed Tracing with Jaeger & Prometheus on Kubernetes](https://blog.openshift.com/openshift-commons-briefing-82-distributed-tracing-with-jaeger-prometheus-on-kubernetes/)

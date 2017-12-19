@@ -1,14 +1,14 @@
-# Deployment
+# 部署
 
-The main Jaeger backend components are released as Docker images on Docker Hub:
+核心的Jaeger后端组件都可以在Docker Hub上找到对应的Docker镜像
 
-Component             | Repository
+组件             | 镜像库地址
 --------------------- | ---
 **jaeger-agent**      | [hub.docker.com/r/jaegertracing/jaeger-agent/](https://hub.docker.com/r/jaegertracing/jaeger-agent/)
 **jaeger-collector**  | [hub.docker.com/r/jaegertracing/jaeger-collector/](https://hub.docker.com/r/jaegertracing/jaeger-collector/)
 **jaeger-query**      | [hub.docker.com/r/jaegertracing/jaeger-query/](https://hub.docker.com/r/jaegertracing/jaeger-query/)
 
-There are orchestration templates for running Jaeger with:
+下面有容器编排工具的配置文件模板
 
   * Kubernetes: [github.com/jaegertracing/jaeger-kubernetes](https://github.com/jaegertracing/jaeger-kubernetes),
   * OpenShift: [github.com/jaegertracing/jaeger-openshift](https://github.com/jaegertracing/jaeger-openshift).
