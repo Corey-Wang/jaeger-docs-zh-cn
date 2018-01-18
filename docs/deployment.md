@@ -39,12 +39,9 @@ docker run \
 ```
 
 ### Discovery System Integration
+agents支持和通过负载均衡组件后的collector组件的单一地址进行点对点的通讯。也可以支持配置静态的collector地址表
 
-The agents can connect point to point to a single collector address, which could be
-load balanced by another infrastructure component (e.g. DNS) across multiple collectors.
-The agent can also be configured with a static list of collector addresses.
-
-On Docker, a command like the following can be used:
+Docker运行的命令
 
 ```bash
 docker run \

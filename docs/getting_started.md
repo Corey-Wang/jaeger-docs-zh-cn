@@ -1,21 +1,20 @@
-# Getting Started
+# 快速上手
 
 ## All in one Docker image
 
-This image, designed for quick local testing, launches the Jaeger UI, collector, query, and agent, with an in memory storage component.
+这个镜像上为快速本地测试而设计，里面运行了Jaeger UI, collector, query, and agent，存储组件上使用了内存
 
-The simplest way to start the all in one docker image is to use the pre-built image published to DockerHub (a single command line).
+通过下面这条命令可以非常容易的快速启动Jaeger的Docker镜像。这个镜像已经发布到了DockerHub上
 
 ```bash
 docker run -d -e COLLECTOR_ZIPKIN_HTTP_PORT=9411 -p5775:5775/udp -p6831:6831/udp -p6832:6832/udp \
   -p5778:5778 -p16686:16686 -p14268:14268 -p9411:9411 jaegertracing/all-in-one:latest
 ```
+Jaeger UI的访问地址是`http://localhost:16686`
 
-You can then navigate to `http://localhost:16686` to access the Jaeger UI.
+这个容器使用了如下端口: 
 
-The container exposes the following ports:
-
-Port | Protocol | Component | Function
+端口 | 协议 | 组件 | 功能
 ---- | -------  | --------- | ---
 5775 | UDP      | agent     | accept zipkin.thrift over compact thrift protocol
 6831 | UDP      | agent     | accept jaeger.thrift over compact thrift protocol
@@ -26,10 +25,9 @@ Port | Protocol | Component | Function
 
 
 ## Kubernetes and OpenShift
-Kubernetes and OpenShift templates can be found in [Jaegertracing](https://github.com/jaegertracing/) organization on
-Github.
+Kubernetes and OpenShift 模板可以在Github的网站上找到： [Jaegertracing](https://github.com/jaegertracing/) 
 
-## Sample Application
+## 应用示例
 
 ### HotROD (Rides on Demand)
 
@@ -41,7 +39,7 @@ A tutorial / walkthough is available in the blog post:
 It can be run standalone, but requires Jaeger backend to view the
 traces.
 
-#### Running
+#### 运行
 
 ```bash
 mkdir -p $GOPATH/src/github.com/jaegertracing
@@ -53,10 +51,10 @@ cd examples/hotrod
 go run ./main.go all
 ```
 
-Then navigate to `http://localhost:8080`.
+然后浏览器访问 `http://localhost:8080`.
 
 
-#### Features
+#### 功能
 
 -   Discover architecture of the whole system via data-driven dependency
     diagram.
@@ -71,18 +69,18 @@ Then navigate to `http://localhost:8080`.
 -   Use open source libraries with OpenTracing integration to get
     vendor-neutral instrumentation for free.
 
-#### Prerequisites
+#### 先决条件
 
--   You need Go 1.9 or higher installed on your machine.
--   Requires a [running Jaeger backend](#all-in-one-docker-image) to view the traces.
+-   必须安装了Go 1.9或更高的版本
+-   为了查看traces信息，需要运行[后台运行Jaeger](#all-in-one-docker-image)镜像
 
-## Client Libraries
+## 客户端库
 
-Look [here](client_libraries.md).
+请查看 [传送门](client_libraries.md).
 
-## Running Individual Jaeger Components
-Individual Jaeger backend components can be run from source.
-They all have their `main.go` in the `cmd` folder. For example, to run the `jaeger-agent`:
+## 运行个人的Jaeger组件
+Jaeger后端组件可以通过源码的方式来运行
+在`cmd`目录下包含这些组件的入口程序 `main.go`, 举个例子，运行`Jaeger-agent`的命令如下
 
 ```bash
 mkdir -p $GOPATH/src/github.com/jaegertracing
@@ -93,13 +91,12 @@ make install
 go run ./cmd/agent/main.go
 ```
 
-## Migrating from Zipkin
+## 从Zipkin迁移
 
-Collector service exposes Zipkin compatible REST API `/api/v1/spans` and `/api/v2/spans` for both
-JSON and thrift encoding.
-By default it's disabled. It can be enabled with `--collector.zipkin.http-port=9411`. 
-
-Zipkin Thrift IDL file can be found in [jaegertracing/jaeger-idl](https://github.com/jaegertracing/jaeger-idl/blob/master/thrift/zipkincore.thrift).
-It's compatible with [openzipkin/zipkin-api](https://github.com/openzipkin/zipkin-api/blob/master/thrift/zipkinCore.thrift)
+Collector服务提供了公开的兼容Zipkin Rest API `/api/v1/spans` and `/api/v2/spans` ，支持JSON和thrift两个格式
+但是，默认配置下上关闭的，需要通过`--collector.zipkin.http-port=9411`参数来激活使用
+ 
+Zipkin Thrift 接口语言描述在这里： [jaegertracing/jaeger-idl](https://github.com/jaegertracing/jaeger-idl/blob/master/thrift/zipkincore.thrift).
+他和Zipkin官方的 [openzipkin/zipkin-api](https://github.com/openzipkin/zipkin-api/blob/master/thrift/zipkinCore.thrift)兼容的
 
 [hotrod-tutorial]: https://medium.com/@YuriShkuro/take-opentracing-for-a-hotrod-ride-f6e3141f7941
